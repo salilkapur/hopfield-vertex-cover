@@ -17,5 +17,7 @@ int main(int argc, char** argv) {
     struct graph* G = (struct graph*)malloc(sizeof(struct graph*)); 
     read_bin_graph(argv[1], G);    
     printf("# Vertices: %ld | # Edges: %ld\n", G->N, G->M);
+    compute_degrees(G);
+    printf("Degree: %d", G->degrees[20]);
     return 1;
 }

@@ -13,9 +13,11 @@
 struct graph {
     long N; //number of vertices
     long M; //number of edges
-    char map[MAX_NR_VERTICES][MAX_NR_VERTICESdiv8];
+    char edges[MAX_NR_VERTICES][MAX_NR_VERTICESdiv8];
+    int* degrees;
 };
 
 char get_edge(struct graph*, int, int);
+void compute_degrees(struct graph*);
 
 #endif

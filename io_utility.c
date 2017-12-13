@@ -79,7 +79,7 @@ void read_bin_graph(char* file, struct graph* G)
     }
 
     for ( i = 0
-            ; i < G->N && fread(G->map[i], 1, (int)((i + 8)/8), fp)
+            ; i < G->N && fread(G->edges[i], 1, (int)((i + 8)/8), fp)
             ; i++ );
 
     fclose(fp);
