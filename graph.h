@@ -16,4 +16,6 @@ struct graph {
     char map[MAX_NR_VERTICES][MAX_NR_VERTICESdiv8];
 };
 
+char get_edge(struct graph*, int, int);
+
 #endif

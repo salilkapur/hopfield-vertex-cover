@@ -9,8 +9,6 @@
  * containing Dimacs format "p ??? num num" 
  */
 
-char masks[ 8 ] = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
-
 int get_params(char* pp, struct graph *G)
 {
 	char c, *tmp;
@@ -48,18 +46,6 @@ int get_params(char* pp, struct graph *G)
 	  return 0;  /* error */
 	else
 	  return 1;
-}
-
-char get_edge(struct graph* G, int i, int j)
-{
-	int byte, bit;
-	char mask;
-	
-	bit  = 7-(j & 0x00000007);
-	byte = j >> 3;
-	
-	mask = masks[bit];
-	return( (G->map[i][byte] & mask)==mask );
 }
 
 void read_bin_graph(char* file, struct graph* G)
