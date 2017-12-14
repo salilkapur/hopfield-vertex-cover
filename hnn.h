@@ -1,6 +1,7 @@
 /*
  * Data structures and functions for HNN computation
  */
+#include <stdint.h>
 
 #ifndef _H_HNN
 #define _H_HNN
@@ -19,7 +20,7 @@ struct hyperparameters {
 struct model {
     float* weights;
     struct hyperparameters* h_params;
-    uint8* cover;
+    uint8_t cover;
     struct graph* G;
 };
 
