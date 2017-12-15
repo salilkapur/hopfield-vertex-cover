@@ -1,6 +1,6 @@
-CC=gcc-7
+CC=gcc
 INCLUDE_DIRS=.
-CFLAGS= -Wall -g -I$(INCLUDE_DIRS)
+CFLAGS= -Wall -g -I$(INCLUDE_DIRS) -std=c99
 
 HEADERS=$(wildcard *.h)
 SRCS=$(wildcard *.c)
@@ -17,4 +17,4 @@ build: $(DOBJS)
 	$(CC) -o mvc $(DOBJS) $(CFALGS)
 
 clean:
-	rm -f mvc *.o *~
+	rm -f mvc $(OBJDIR)/*.o *~

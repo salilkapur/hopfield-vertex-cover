@@ -69,18 +69,29 @@ void read_bin_graph(char* file, struct graph* G)
         printf("ERROR: Too long preamble.\n");
         exit(0);
     }
-
+    
+    printf("Reading graph preamble...\n");
     fread(Preamble, 1, length, fp);
     Preamble[length] = '\0';
+    printf("Graph preamble read!\n");
 
     if (!get_params(Preamble, G)) {
         printf("ERROR: Corrupted preamble.\n");
         exit(10);
     }
-
+    
+    printf("Reading edges into the graph\n");
+    printf("Graph Vertices: %ld\n", G->N);
+    for (i=0; i < G->N; i++) {
+        //printf("i: %d\n", i);
+        G->edges[i] = 100;
+    }
+    /*
     for ( i = 0
             ; i < G->N && fread(G->edges[i], 1, (int)((i + 8)/8), fp)
             ; i++ );
+    */
 
+    printf("Edges read!\n");
     fclose(fp);
 }
