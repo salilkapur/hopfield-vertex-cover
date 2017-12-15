@@ -43,6 +43,9 @@ int main(int argc, char** argv) {
     M->h_params->decay = 1;
 
     init_hnn_weights(G, M);
+    long vertices = G->N;
+  /*  printf("\n%f, %f, %f, %f, %f, %f, %f, %f, %f, %f", M->weights[1], M->weights[2], M->weights[3], M->weights[4], M->weights[5], 
+        M->weights[vertices-1], M->weights[vertices-2], M->weights[vertices-3], M->weights[vertices-4], M->weights[vertices-5]);*/
 
     return 1;
 }
