@@ -17,12 +17,13 @@ struct hyperparameters {
     float B;
     float decay;
     float beta;
+    float temperature;
 };
 
 struct model {
     float* weights;
     struct hyperparameters* h_params;
-    uint8_t cover;
+    uint8_t* cover;
     struct graph* G;
 };
 
