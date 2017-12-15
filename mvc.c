@@ -31,6 +31,9 @@ int main(int argc, char** argv) {
     printf("# Vertices: %ld | # Edges: %ld\n", G->N, G->M);
     compute_degrees(G);
     printf("Degree: %d", G->degrees[20]);
+
+    // Set hyperparameters
+
     return 1;
 }
 
@@ -54,9 +57,9 @@ float outputPotential(struct model* model, int i){
 
 void init_hnn_weights(struct graph* G, struct model* model) {
     model->weights = (float*)malloc(sizeof(float) * G->N);
+    int eps = model->h_params->epsilon * 100;
     for (long i=0; i < G->N; i++) {
-        model->weights[i] = model->h_params->decision_thresh + (float)rand() / (float)model->h_params->epsilon ;
-        
+        model->weights[i] = model->h_params->decision_thresh + (float)(rand() % (eps*2+1))/(float)100  - model->h_params->epsilon;    
     }
 }
 
