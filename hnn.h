@@ -12,6 +12,7 @@
 struct hyperparameters {
     float theta;
     float decision_thresh;
+    float epsilon;
     float A;
     float B;
     float decay;

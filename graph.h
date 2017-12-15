@@ -14,7 +14,7 @@ struct graph {
     long N; //number of vertices
     long M; //number of edges
     char edges[MAX_NR_VERTICES][MAX_NR_VERTICESdiv8];
-    int* degrees;
+    int* degrees; // count of adjacent vertices per vertex
 };
 
 char get_edge(struct graph*, int, int);
