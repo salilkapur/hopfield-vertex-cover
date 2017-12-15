@@ -82,16 +82,11 @@ void read_bin_graph(char* file, struct graph* G)
     
     printf("Reading edges into the graph\n");
     printf("Graph Vertices: %ld\n", G->N);
-    for (i=0; i < G->N; i++) {
-        //printf("i: %d\n", i);
-        G->edges[i] = 100;
-    }
-    /*
+    
     for ( i = 0
-            ; i < G->N && fread(G->edges[i], 1, (int)((i + 8)/8), fp)
+            ; i < G->N && fread(G->adj_list[i], 1, (int)((i + 8)/8), fp)
             ; i++ );
-    */
-
+    
     printf("Edges read!\n");
     fclose(fp);
 }

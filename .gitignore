@@ -1,6 +1,10 @@
+# Project specific ignores
 test_out
 mvc
 *.swp
+a.out
+mvc
+
 # Prerequisites
 *.d
 
