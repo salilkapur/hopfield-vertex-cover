@@ -32,7 +32,17 @@ int main(int argc, char** argv) {
     compute_degrees(G);
     printf("Degree: %d", G->degrees[20]);
 
-    // Set hyperparameters
+    //Set hyperparameters
+    struct model* M = (struct model*)malloc(sizeof(struct model));
+    M->h_params = (struct hyperparameters*)malloc(sizeof(struct hyperparameters));
+    M->h_params->theta = .5;
+    M->h_params->decision_thresh = .5;
+    M->h_params->epsilon = .05;
+    M->h_params->A = 1;
+    M->h_params->B = 1;
+    M->h_params->decay = 1;
+
+    init_hnn_weights(G, M);
 
     return 1;
 }
