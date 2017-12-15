@@ -16,6 +16,7 @@ struct hyperparameters {
     float A;
     float B;
     float decay;
+    float beta;
 };
 
 struct model {
