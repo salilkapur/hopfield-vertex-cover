@@ -50,7 +50,6 @@ int get_params(char* pp, struct graph *G)
 
 void read_bin_graph(char* file, struct graph* G)
 {
-    printf("Reading graph...\n");
     int i, length = 0;
     char* Preamble = (char*)malloc(sizeof(char) * MAX_PREAMBLE);
     FILE *fp;
@@ -83,5 +82,4 @@ void read_bin_graph(char* file, struct graph* G)
             ; i++ );
     
     fclose(fp);
-    printf("Graph read!\n");
 }

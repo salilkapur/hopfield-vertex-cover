@@ -41,7 +41,6 @@ void compute_adj_mat(struct graph* G) {
 }
 
 void graph_init(struct graph* G) {
-    printf("Initializing graph...\n");
     G->adj_list = (char**)malloc(sizeof(char*) * MAX_NR_VERTICES);
     G->adj_mat = (char**)malloc(sizeof(char*) * MAX_NR_VERTICES);
     int i = 0;
@@ -49,5 +48,4 @@ void graph_init(struct graph* G) {
         G->adj_list[i] = (char*)malloc(sizeof(char) * MAX_NR_VERTICESdiv8);
         G->adj_mat[i] = (char*)malloc(sizeof(char) * MAX_NR_VERTICES);
     }
-    printf("Graph initialized!\n");
 }

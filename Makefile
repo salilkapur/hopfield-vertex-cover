@@ -4,7 +4,7 @@ CFLAGS= -Wall -g -I$(INCLUDE_DIRS) -std=c99
 
 HEADERS=$(wildcard *.h)
 SRCS=$(wildcard *.c)
-OBJS=io_utility.o mvc.o graph.o
+OBJS=io_utility.o graph.o hnn.o mvc.o
 DOBJS=$(addprefix $(OBJDIR)/, $(OBJS))
 OBJDIR=./obj
 
