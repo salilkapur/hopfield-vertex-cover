@@ -17,6 +17,7 @@ char get_edge(struct graph* G, int i, int j)
 }
 
 void compute_degrees(struct graph* G) {
+    G->degrees = (int*)malloc(sizeof(int) * G->N);
     for (long i=0; i < G->N; i++) {
         G->degrees[i] = 0;
         for(long j=0; j < G->N; j++) {
@@ -48,6 +49,5 @@ void graph_init(struct graph* G) {
         G->adj_list[i] = (char*)malloc(sizeof(char) * MAX_NR_VERTICESdiv8);
         G->adj_mat[i] = (char*)malloc(sizeof(char) * MAX_NR_VERTICES);
     }
-    G->degrees = (int*)malloc(sizeof(int) * G->N);
     printf("Graph initialized!\n");
 }

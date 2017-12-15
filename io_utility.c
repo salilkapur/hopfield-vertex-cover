@@ -36,7 +36,7 @@ int get_params(char* pp, struct graph *G)
 		  }
 	}
 	
-	free(tmp);
+	//free(tmp);
     
     //Updating graph structure
     G->N = N;
@@ -50,9 +50,9 @@ int get_params(char* pp, struct graph *G)
 
 void read_bin_graph(char* file, struct graph* G)
 {
-
+    printf("Reading graph...\n");
     int i, length = 0;
-    char Preamble[MAX_PREAMBLE];
+    char* Preamble = (char*)malloc(sizeof(char) * MAX_PREAMBLE);
     FILE *fp;
 
     if ( (fp=fopen(file,"r"))==NULL ) { 
@@ -70,23 +70,18 @@ void read_bin_graph(char* file, struct graph* G)
         exit(0);
     }
     
-    printf("Reading graph preamble...\n");
     fread(Preamble, 1, length, fp);
     Preamble[length] = '\0';
-    printf("Graph preamble read!\n");
 
     if (!get_params(Preamble, G)) {
         printf("ERROR: Corrupted preamble.\n");
         exit(10);
     }
     
-    printf("Reading edges into the graph\n");
-    printf("Graph Vertices: %ld\n", G->N);
-    
     for ( i = 0
             ; i < G->N && fread(G->adj_list[i], 1, (int)((i + 8)/8), fp)
             ; i++ );
     
-    printf("Edges read!\n");
     fclose(fp);
+    printf("Graph read!\n");
 }

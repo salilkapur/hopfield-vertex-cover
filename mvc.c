@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     }
     
     //Create a new graph
-    struct graph* G = (struct graph*)malloc(sizeof(struct graph*)); 
+    struct graph* G = (struct graph*)malloc(sizeof(struct graph)); 
     graph_init(G);
     read_bin_graph(argv[1], G);    
     DEBUG printf("# Vertices: %ld | # Edges: %ld\n", G->N, G->M);
