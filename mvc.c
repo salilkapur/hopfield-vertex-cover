@@ -28,6 +28,8 @@ int main(int argc, char** argv) {
     compute_adj_mat(G);
     compute_degrees(G);
     
+    srand(time(NULL)); //Seeding the random number generator
+    rand();
     //Initialize the model
     struct model* M = (struct model*)malloc(sizeof(struct model));
     DEBUG printf("Initializing model...\n");
