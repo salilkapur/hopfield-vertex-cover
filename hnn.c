@@ -92,7 +92,7 @@ int compute_vertex_cover(struct model* M) {
     int count = 0;
     OUTPUT_POTENTIAL printf("Output Potential: ");
     for(i=0; i < M->G->N; i++) {
-        float v = output_potential(M, i, 2);
+        float v = output_potential(M, i, 1);
         OUTPUT_POTENTIAL printf("%4.2f\t", v);
         if ( v >= M->h_params->decision_thresh) {
             M->cover[i] = 1;
