@@ -8,7 +8,7 @@ void init_model(struct model* M, struct graph* G, struct hyperparameters* h_para
         M->h_params->theta = 5;
         M->h_params->decision_thresh = 0.5;
         M->h_params->A = 1;
-        M->h_params->B = 2;
+        M->h_params->B = 1;
         M->h_params->decay = 1;
     }
     else
