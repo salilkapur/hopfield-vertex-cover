@@ -1,6 +1,6 @@
 #include "hnn.h"
 
-#define DERIVATIVE if(0)
+#define DERIVATIVE if(1)
 #define OUTPUT_POTENTIAL if(1)
 #define WEIGHTS if(1)
 
@@ -17,6 +17,7 @@ void init_model(struct model* M, struct graph* G, struct hyperparameters* h_para
         M->h_params->decay = 1;
         M->h_params->epsilon = 6 * M->h_params->theta;
         M->h_params->temperature = 1.5 * G->N;
+        M->h_params->beta = 0.03;
     }
     else
         M->h_params = h_params;
@@ -67,7 +68,7 @@ float delta_weight(struct model* M, int i) {
     float derivativeE = -1 * A + 2 * B * sum;
 
     float greedy_factor_sim_anneal = M->h_params->temperature * (1 - M->G->degrees[i]/M->G->M);
-    float delta_i = -1 * (M->weights[i]/M->h_params->decay) + derivativeE - greedy_factor_sim_anneal;
+    float delta_i = -1 * (M->weights[i]/M->h_params->decay) + derivativeE - 0 * greedy_factor_sim_anneal;
     return delta_i;
 }
 
@@ -92,7 +93,7 @@ int compute_vertex_cover(struct model* M) {
     int count = 0;
     OUTPUT_POTENTIAL printf("Output Potential: ");
     for(i=0; i < M->G->N; i++) {
-        float v = output_potential(M, i, 2);
+        float v = output_potential(M, i, 1);
         OUTPUT_POTENTIAL printf("%4.2f\t", v);
         if ( v >= M->h_params->decision_thresh) {
             M->cover[i] = 1;
