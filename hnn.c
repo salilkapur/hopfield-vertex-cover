@@ -16,7 +16,7 @@ void init_model(struct model* M, struct graph* G, struct hyperparameters* h_para
         M->h_params->B = 1;
         M->h_params->decay = 1;
         M->h_params->epsilon = 6 * M->h_params->theta;
-        M->h_params->temperature = 1.5 * G->N;
+        M->h_params->temperature = .15 * G->N;
         M->h_params->beta = 0.03;
     }
     else
@@ -67,8 +67,8 @@ float delta_weight(struct model* M, int i) {
     
     float derivativeE = -1 * A + 2 * B * sum;
 
-    float greedy_factor_sim_anneal = M->h_params->temperature * (1 - M->G->degrees[i]/M->G->M);
-    float delta_i = -1 * (M->weights[i]/M->h_params->decay) + derivativeE - 0 * greedy_factor_sim_anneal;
+    float greedy_factor = M->h_params->temperature * (1 - M->G->degrees[i]/M->G->M);
+    float delta_i = -1 * (M->weights[i]/M->h_params->decay) + derivativeE -  greedy_factor;
     return delta_i;
 }
 
