@@ -9,6 +9,7 @@
 //Declared in common.h
 char masks[8] = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
 int* results;
+int* is_VC;
 
 int main(int argc, char** argv) {
     
@@ -24,7 +25,7 @@ int main(int argc, char** argv) {
     DEBUG printf("Initializing graph...\n");
     read_bin_graph(argv[1], G);    
     DEBUG printf("Graph initialized!\n");
-    DEBUG printf("# Vertices: %ld | # Edges: %ld\n", G->N, G->M);
+    DEBUG printf("Vertices: %ld | Edges: %ld\n", G->N, G->M);
     compute_adj_mat(G);
     compute_degrees(G);
     
@@ -37,8 +38,9 @@ int main(int argc, char** argv) {
     DEBUG printf("Model initialized!\n");
     
     results = (int*)malloc(sizeof(int) * ROUNDS);
+    is_VC = (int*)malloc(sizeof(int) * ROUNDS);
     // Run optimization
-    optimize(M, results, ROUNDS);
+    optimize(M, results, is_VC, ROUNDS);
 
     return 1;
 }

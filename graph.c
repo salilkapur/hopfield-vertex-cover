@@ -21,10 +21,13 @@ void compute_degrees(struct graph* G) {
     for (long i=0; i < G->N; i++) {
         G->degrees[i] = 0;
         for(long j=0; j < G->N; j++) {
+            G->degrees[i] += G->adj_mat[i][j];
+            /*
             if(G->adj_mat[i][j] == 1) {
                 //printf("Edge: (%ld, %ld)\n",i, j);
                 G->degrees[i]++;
             }
+            */
         }
     }
 }

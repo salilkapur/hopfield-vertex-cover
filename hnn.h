@@ -36,5 +36,7 @@ int compute_vertex_cover(struct model*);
 void update_weights(struct model*);
 void print_weights(struct model*);
 void update_temperature(struct model*);
-void optimize(struct model*, int*, int);
+void optimize(struct model*, int*, int*, int);
+int is_vertex_cover(struct model*);
+
 #endif
